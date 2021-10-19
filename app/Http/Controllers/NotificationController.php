@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 class NotificationController extends Controller
 {
@@ -23,5 +24,10 @@ class NotificationController extends Controller
         $notifications = Notification::all();
 
         return view('logs', compact('notifications'));
+    }
+
+    public function runMigrations() {
+        Artisan::call("migrate");
+        return 'migrations ok';
     }
 }
