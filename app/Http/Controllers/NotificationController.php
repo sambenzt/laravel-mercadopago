@@ -17,4 +17,11 @@ class NotificationController extends Controller
         return 'notification ok';
 
     }
+
+    public function logs() {
+
+        $notifications = Notification::all();
+
+        return view('logs', compact('notifications'));
+    }
 }
