@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/notifications', 'NotificationController@index');
+
 Route::get('/logs', 'NotificationController@logs');
 Route::get('/migrations', 'NotificationController@runMigrations');

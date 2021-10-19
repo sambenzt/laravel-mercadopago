@@ -18,7 +18,7 @@ class NotificationTest extends TestCase
             'data2' => 'value2'
         ];
 
-        $response = $this->post('/notifications?param1=1&param2=2', $data);
+        $response = $this->post('/api/notifications?param1=1&param2=2', $data);
 
         $response->assertStatus(200);
 
@@ -26,7 +26,7 @@ class NotificationTest extends TestCase
 
         $this->assertDatabaseHas('notifications', [
             'id'   => 1,
-            'url'  => env('APP_URL') . '/notifications?param1=1&param2=2',
+            'url'  => env('APP_URL') . '/api/notifications?param1=1&param2=2',
             'json' => json_encode($data),
         ]);
     }
