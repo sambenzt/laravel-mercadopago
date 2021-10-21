@@ -21,7 +21,7 @@ class NotificationController extends Controller
 
     public function logs() {
 
-        $notifications = Notification::all();
+        $notifications = Notification::orderBy('created_at', 'DESC')->get();
 
         return view('logs', compact('notifications'));
     }
