@@ -11,7 +11,7 @@ class NotificationController extends Controller
     public function index(Request $request) {
 
         Notification::create([
-            'url' => $request->fullUrl(),
+            'url' =>   $_SERVER['REMOTE_ADDR'] . ' - ' .  $request->getQueryString(),
             'json' => json_encode($request->post())
         ]);
 
