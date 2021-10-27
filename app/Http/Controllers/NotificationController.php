@@ -10,8 +10,10 @@ class NotificationController extends Controller
 {
     public function index(Request $request) {
 
+        $HTTP_X_FORWARDED_FOR = !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : null;
+
         Notification::create([
-            'url' =>   $_SERVER['REMOTE_ADDR'] . ' - ' .  $request->getQueryString(),
+            'url' => 'REMOTE_ADDR: ' . $_SERVER['REMOTE_ADDR']. ' - HTTP_CLIENT_IP: ' . $_SERVER['HTTP_CLIENT_IP'] . ' - HTTP_X_FORWARDED_FOR: ' . $HTTP_X_FORWARDED_FOR . ' - query string: ' .  $request->getQueryString(),
             'json' => json_encode($request->post())
         ]);
 
