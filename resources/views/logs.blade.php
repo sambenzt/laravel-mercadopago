@@ -21,6 +21,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>URL</th>
                             <th>Created</th>
                             <th>JSON Data</th>
@@ -30,8 +31,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($notifications as $notification)
+                        @foreach ($notifications as $i => $notification)
                             <tr>
+                                <td>{{ $i + 1 }}</td>
                                 <td>{{ $notification->url }}</td>
                                 <td>{{ $notification->created_at }}</td>
                                 <td>{{ $notification->json }}</td>

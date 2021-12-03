@@ -41,10 +41,10 @@ class NotificationController extends Controller
 
         $value = $arr[ rand(0, count($arr) - 1) ];
 
-        $status = $value ? 200 : 500;
+        $status = $value ? 200 : 403;
 
         Notification::create([
-            'url' => 'status ' . $status ,
+            'url' => 'status ' . $status . ' - query string: ' .  $request->getQueryString() ,
             'json' => json_encode($request->post())
         ]);
 
