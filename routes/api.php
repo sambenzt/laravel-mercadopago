@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/notifications', 'NotificationController@index');
+
+Route::post('/notification_webhook', 'NotificationController@webhook');
+
+

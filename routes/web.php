@@ -19,4 +19,5 @@ Route::get('/', function () {
 
 
 Route::get('/logs', 'NotificationController@logs');
+Route::get('/logs/delete/{id}', 'NotificationController@delete');
 Route::get('/migrations', 'NotificationController@runMigrations');

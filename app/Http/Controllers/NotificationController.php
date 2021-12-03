@@ -34,4 +34,29 @@ class NotificationController extends Controller
         Artisan::call("migrate");
         return 'migrations ok';
     }
+
+    public function webhook(Request $request) {
+
+        Notification::create([
+            'url' => 'REMOTE_ADDR: ' . $_SERVER['REMOTE_ADDR'],
+            'json' => json_encode($request->post())
+        ]);
+
+        return response('ok');
+
+    }
+
+    public function delete($id) {
+
+        if($id == 'all') {
+            Notification::query()->delete();
+        }
+        else {
+            $notification = Notification::findOrFail($id);
+            $notification->delete();
+        }
+
+        return redirect()->back();
+    }
+
 }

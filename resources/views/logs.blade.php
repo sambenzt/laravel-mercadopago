@@ -24,6 +24,9 @@
                             <th>URL</th>
                             <th>Created</th>
                             <th>JSON Data</th>
+                            <th>
+                                <a href="{{ url('/logs/delete/all') }}" onClick="confirm('eliminar?')" class="btn btn-danger ml-2">Eliminar todo</a>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,6 +35,9 @@
                                 <td>{{ $notification->url }}</td>
                                 <td>{{ $notification->created_at }}</td>
                                 <td>{{ $notification->json }}</td>
+                                <td>
+                                    <a href="{{ url('/logs/delete/' . $notification->id) }}" onClick="confirm('eliminar?')" class="btn btn-danger">Eliminar</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
