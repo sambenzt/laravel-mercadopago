@@ -39,6 +39,8 @@ class NotificationController extends Controller
 
         $arr = [false, true, false, false, true];
 
+        $arr = [false, false, false];
+
         $value = $arr[ rand(0, count($arr) - 1) ];
 
         $status = $value ? 200 : 403;
