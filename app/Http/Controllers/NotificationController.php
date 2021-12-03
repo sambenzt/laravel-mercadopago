@@ -37,12 +37,18 @@ class NotificationController extends Controller
 
     public function webhook(Request $request) {
 
+        $arr = [false, true, false, false, true];
+
+        $value = $arr[ rand(0, count($arr) - 1) ];
+
+        $status = $value ? 200 : 500;
+
         Notification::create([
-            'url' => 'REMOTE_ADDR: ' . $_SERVER['REMOTE_ADDR'],
+            'url' => 'status ' . $status ,
             'json' => json_encode($request->post())
         ]);
 
-        return response('ok');
+        return response('notification', $status);
 
     }
 
