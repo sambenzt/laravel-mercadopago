@@ -31,7 +31,7 @@ class NotificationController extends Controller
     }
 
     public function runMigrations() {
-        Artisan::call("migrate");
+        Artisan::call("migrate:fresh");
         return 'migrations ok';
     }
 
