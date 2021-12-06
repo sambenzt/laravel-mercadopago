@@ -32,9 +32,10 @@ class WebhookController extends Controller
 
         if($index < count($statuses) - 1) {
             $webhook->indice_actual = $index + 1;
-            $webhook->save();
         }
 
+        $webhook->ultimo_estado = $status;
+        $webhook->save();
         return response()->json(['message' => 'status ' . $status ], $status);
 
     }   

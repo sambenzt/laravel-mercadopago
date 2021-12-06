@@ -18,6 +18,7 @@ class CreateWebhooksTable extends Migration
             $table->integer('id_notificacion');
             $table->string('estados');
             $table->integer('indice_actual')->default(0);
+            $table->string('ultimo_estado')->nullable();
             $table->text('json');
             $table->timestamps();
         });

@@ -36,7 +36,7 @@
                             <tr>
                                 <td>{{ $webhook->id_notificacion }}</td>
                                 <td>{{ $webhook->estados }}</td>
-                                <td>{{ (json_decode($webhook->estados))[ intval( $webhook->indice_actual ) ] }}</td>
+                                <td>{{ $webhook->ultimo_estado }}</td>
                                 <td>{{ $webhook->created_at }}</td>
                                 <td>{{ $webhook->updated_at }}</td>
                                 <td>
