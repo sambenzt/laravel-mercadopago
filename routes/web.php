@@ -20,4 +20,10 @@ Route::get('/', function () {
 
 Route::get('/logs', 'NotificationController@logs');
 Route::get('/logs/delete/{id}', 'NotificationController@delete');
+
+Route::get('/logs/webhook', 'WebhookController@logs');
+Route::get('/logs/webhook/{id}', 'WebhookController@delete');
+Route::get('/logs/webhook/all', 'WebhookController@delete');
+
+
 Route::get('/migrations', 'NotificationController@runMigrations');
