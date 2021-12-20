@@ -4,15 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Webhook;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class WebhookController extends Controller
 {
     public function create(Request $request) {
 
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'data.id_notificacion' => 'required', 
             'data.estados' => 'required'
         ]);
+
+        if ($validator->fails()) {
+            return response()->json(['message' => 'status 200' ], 200);
+        }
        
         $webhook = Webhook::where(['id_notificacion' => $request->data['id_notificacion']])->first();
 
