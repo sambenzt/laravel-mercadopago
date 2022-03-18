@@ -11,6 +11,7 @@ class WebhookController extends Controller
 {
     public function create(Request $request) {
 
+
         $validator = Validator::make($request->all(), [
             'data.id_notificacion' => 'required', 
             'data.estados' => 'required'
@@ -23,10 +24,12 @@ class WebhookController extends Controller
         $webhook = Webhook::where(['id_notificacion' => $request->data['id_notificacion']])->first();
 
         if(!$webhook) {
+
             $webhook = Webhook::create([
                 'id_notificacion' => $request->data['id_notificacion'],
                 'estados' => json_encode($request->data['estados']),
-                'json' => json_encode($request->post())
+                'json' => json_encode($request->post()),
+                'token' => $request->headers->has('subscription_key') ? $request->header('subscription_key') : ''
             ]);
         }
 

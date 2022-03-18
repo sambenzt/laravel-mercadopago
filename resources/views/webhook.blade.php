@@ -22,6 +22,7 @@
                     <thead>
                         <tr>
                             <th>ID NOTIFICACION</th>
+                            <th>TOKEN</th>
                             <th>ESTADOS</th>
                             <th>ULTIMO ESTADO ENVIADO</th>
                             <th>CREADO</th>
@@ -35,6 +36,7 @@
                         @foreach ($webhooks as $webhook)
                             <tr>
                                 <td>{{ $webhook->id_notificacion }}</td>
+                                <td>{{ $webhook->token }}</td>
                                 <td>{{ $webhook->estados }}</td>
                                 <td>{{ $webhook->ultimo_estado }}</td>
                                 <td>{{ $webhook->created_at }}</td>

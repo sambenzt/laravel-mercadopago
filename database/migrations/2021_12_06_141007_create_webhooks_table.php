@@ -19,6 +19,7 @@ class CreateWebhooksTable extends Migration
             $table->string('estados');
             $table->integer('indice_actual')->default(0);
             $table->string('ultimo_estado')->nullable();
+            $table->string('token')->nullable();
             $table->text('json');
             $table->timestamps();
         });
